@@ -52,7 +52,7 @@ const MyComponent = ({ drizzle, drizzleState }) => {
 						contract="TutorialToken"
 						method="totalSupply"
 						methodArgs={[{ from: drizzleState.accounts[0] }]}
-					/>{" "}
+					/>
 					<ContractData
 						drizzle={drizzle}
 						drizzleState={drizzleState}
