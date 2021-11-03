@@ -1,26 +1,38 @@
 {
-  "name": "drizzle-box",
-  "version": "1.0.0",
-  "description": "",
-  "main": "truffle-config.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/truffle-box/drizzle-box.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/truffle-box/drizzle-box/issues"
-  },
-  "homepage": "https://github.com/truffle-box/drizzle-box#readme",
-  "dependencies": {
-    "@openzeppelin/contracts": "^2.4.0"
-  }
+	"name": "drizzle-box",
+	"version": "1.0.0",
+	"description": "",
+	"main": "truffle-config.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"ganache": "ganache-cli --port 7545 --networkId $npm_package_config_ganache_networkId --allowUnlimitedContractSize --gasLimit $npm_package_config_ganache_gasLimit --gasPrice $npm_package_config_ganache_gasPrice --mnemonic \"$MNEMONIC\"",
+		"start": "concurrently \"npm run ganache\" \"npm run migrate\"",
+		"migrate": "rm -rf app/src/contracts && truffle migrate --reset --compile-all --network development",
+		"migrate:g": "rm -rf app/src/contracts && truffle migrate --reset --compile-all --network graphical"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/truffle-box/drizzle-box.git"
+	},
+	"config": {
+		"ganache": {
+			"networkId": 3431,
+			"gasPrice": 25000000000,
+			"gasLimit": 6500000
+		}
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/truffle-box/drizzle-box/issues"
+	},
+	"homepage": "https://github.com/truffle-box/drizzle-box#readme",
+	"dependencies": {
+		"@openzeppelin/contracts": "^2.4.0",
+		"babel-polyfill": "^6.26.0",
+		"babel-register": "^6.26.0"
+	}
 }
