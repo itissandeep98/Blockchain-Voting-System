@@ -2,7 +2,7 @@ import React from "react";
 import { DrizzleContext } from "@drizzle/react-plugin";
 import { Drizzle } from "@drizzle/store";
 import drizzleOptions from "./drizzleOptions";
-import VotingApp from "./Components/VotingApp";
+import Routing from "./Components/Routing";
 import Loading from "./Components/Loading";
 import "./App.css";
 
@@ -31,7 +31,7 @@ const App = () => {
 						);
 					}
 
-					return <VotingApp drizzle={drizzle} drizzleState={drizzleState} />;
+					return <Routing drizzle={drizzle} drizzleState={drizzleState} />;
 				}}
 			</DrizzleContext.Consumer>
 		</DrizzleContext.Provider>

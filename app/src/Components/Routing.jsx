@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Start from "./Start";
 import RenderID from "./RenderID";
 import Verifier from "./Verifier";
@@ -7,7 +7,7 @@ import Election from "./Election";
 import Header from "./Header";
 import Loading from "./Loading";
 
-function VotingApp(props) {
+function Routing(props) {
 	const { drizzle, drizzleState } = props;
 	const start = () => {
 		return <Start drizzle={drizzle} drizzleState={drizzleState} />;
@@ -36,4 +36,4 @@ function VotingApp(props) {
 	);
 }
 
-export default VotingApp;
+export default Routing;

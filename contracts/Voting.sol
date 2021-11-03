@@ -52,7 +52,7 @@ contract Voting {
 
     function startElection(
         string memory key,
-        uint256 upTime,
+        // uint256 upTime,
         uint256 nVoters
     ) public onlyOwner notRunning {
         clearElection();

@@ -1,9 +1,9 @@
-const SimpleStorage = artifacts.require("SimpleStorage");
-const TutorialToken = artifacts.require("TutorialToken");
-const ComplexStorage = artifacts.require("ComplexStorage");
+var Vote = artifacts.require("Vote");
+var Voting = artifacts.require("Voting");
+var PoliticalParties = artifacts.require("PoliticalParties");
 
-module.exports = function(deployer) {
-  deployer.deploy(SimpleStorage);
-  deployer.deploy(TutorialToken);
-  deployer.deploy(ComplexStorage);
+module.exports = function (deployer) {
+	deployer.deploy(Vote);
+	deployer.deploy(Voting);
+	deployer.deploy(PoliticalParties);
 };
