@@ -26,10 +26,10 @@ function Routing(props) {
 			<Header />
 			<Suspense fallback={<Loading />}>
 				<Switch>
-					<Route path="/" component={start} />
-					<Route path="/generate" component={generate} />
-					<Route path="/verifier" component={verifier} />
-					<Route path="/election" component={election} />
+					<Route exact path="/" component={start} />
+					<Route exact path="/generate" component={generate} />
+					<Route exact path="/verifier" component={verifier} />
+					<Route exact path="/election" component={election} />
 				</Switch>
 			</Suspense>
 		</BrowserRouter>

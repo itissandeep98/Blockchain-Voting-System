@@ -28,11 +28,14 @@
 var networkId = process.env.npm_package_config_ganache_networkId;
 var gasPrice = process.env.npm_package_config_ganache_gasPrice;
 var gasLimit = process.env.npm_package_config_ganache_gasLimit;
+const mnemonic =
+	"song dog obscure spot target sauce gravity deputy say beauty smooth false crouch upper fault";
 
 const path = require("path");
 
 require("babel-register");
 require("babel-polyfill");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
 	/**
@@ -62,6 +65,16 @@ module.exports = {
 			network_id: networkId, // Any network (default: none)
 			gas: gasLimit,
 			gasPrice: gasPrice,
+		},
+		ropsten: {
+			provider: function () {
+				return new HDWalletProvider(
+					mnemonic,
+					"https://ropsten.infura.io/v3/11f49c181f874019bf92dfe26a5447c5"
+				);
+			},
+			network_id: 3,
+			gas: 4000000, //make sure this gas allocation isn't over 4M, which is the max
 		},
 
 		cli: {

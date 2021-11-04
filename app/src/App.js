@@ -9,7 +9,6 @@ const App = () => {
 		<DrizzleContext.Consumer>
 			{(drizzleContext) => {
 				const { drizzle, drizzleState, initialized } = drizzleContext;
-				console.log(drizzleContext);
 				if (!initialized) {
 					return (
 						<div

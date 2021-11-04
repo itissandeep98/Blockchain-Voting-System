@@ -32,7 +32,10 @@
 	"homepage": "https://github.com/truffle-box/drizzle-box#readme",
 	"dependencies": {
 		"@openzeppelin/contracts": "^2.4.0",
+		"@truffle/hdwallet-provider": "^1.5.1",
 		"babel-polyfill": "^6.26.0",
-		"babel-register": "^6.26.0"
+		"babel-register": "^6.26.0",
+		"object-hash": "^2.2.0",
+		"react-split-flap-display": "^0.3.3"
 	}
 }
