@@ -2,15 +2,20 @@
 
 #### NEW
 
+** Disable any crypto wallet in the browser **
+
 ```
+sudo npm i -g ganache-cli
+sudo npm i -g concurrently
+npm i
 npm run start
 ```
 
 ```
-cd app && npm run start
+cd app
+npm i
+npm run start
 ```
-
-disable any crypto wallet in the browser
 
 #### OLD
 
