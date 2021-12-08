@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import FlipFlap from "../Utils/FlipFlap";
 import generateHash from "../Utils/HashGenerator";
 import { Button } from "reactstrap";
 
