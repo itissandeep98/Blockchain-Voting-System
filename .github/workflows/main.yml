@@ -1,0 +1,23 @@
+name: gh pages publish
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: publish package
+        run: |
+          npm install
+          git config user.name "itissandeep98"
+          git config user.email "itissandeep98@gmail.com"
+          git remote set-url origin https://itissandeep98:${{secrets.ACCESS_TOKEN}}@github.com/itissandeep98/Blockchain-Voting-System
+          npm run deploy
