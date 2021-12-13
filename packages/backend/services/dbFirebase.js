@@ -1,17 +1,17 @@
 const firebaseAdmin = require("firebase-admin");
 
-/*
-const firebaseServiceAccount = require("../firebaseServiceAccountKey.json");
+
+const firebaseServiceAccount = require("../bvs-ibc-firebase-adminsdk-6w1ow-b80fa12634.json");
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(firebaseServiceAccount),
 });
-*/
 
-firebaseAdmin.initializeApp({
-  credential: admin.credential.applicationDefault()
-});
 
+// firebaseAdmin.initializeApp({
+//   credential: admin.credential.applicationDefault()
+// });
+console.log("hello google database");
 // Docs: https://firebase.google.com/docs/firestore/quickstart#node.js_1
 const database = firebaseAdmin.firestore();
 
@@ -21,7 +21,7 @@ const createDistribution = async (data) => {
 
 const finishDistribution = async (id) => {
   const distributionRef = database.collection('distributions').doc(id);
-  return distributionRef.update({status: 'finished'});
+  return distributionRef.update({ status: 'finished' });
 };
 
 const currentDistribution = async () => {
@@ -29,7 +29,7 @@ const currentDistribution = async () => {
     .where('status', '==', 'started')
     .get();
 
-  if(!snapshot.empty) {
+  if (!snapshot.empty) {
     return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() };
   } else {
     return false;

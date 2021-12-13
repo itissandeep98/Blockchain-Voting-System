@@ -5,7 +5,7 @@ const https = require("https");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
-const db = require("./services/db");
+const db = require("./services/dbFirebase");
 
 // MY INFURA_ID, SWAP IN YOURS FROM https://infura.io/dashboard/ethereum
 const INFURA_ID = "460f40a260564ac4a4f4b3fffb032dad";
