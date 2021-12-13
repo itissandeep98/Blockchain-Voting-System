@@ -495,12 +495,10 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <img src="/logo/logo.png" width={300} height={60} />
+    <div className="App text-center">
+      <img src="/logo/logo.png" width={300} height={60} className="my-3 mx-3" />
 
       {networkDisplay}
-      <BrowserRouter>{pageContent()}</BrowserRouter>
-
       <div className="p-5">
         <Account
           address={address}
@@ -516,6 +514,7 @@ function App() {
           isVoter={isVoter}
         />
       </div>
+      <BrowserRouter>{pageContent()}</BrowserRouter>
     </div>
   );
 }
