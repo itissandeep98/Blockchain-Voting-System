@@ -1,1 +1,39 @@
-{}
+{
+  "1": {
+    "id": "1",
+    "owner": "0xE14702dE204FB82643AE90793A13Fe6e418ce18d",
+    "createdAt": 1639421014117,
+    "voteAllocation": "2",
+    "members": [
+      "0xE14702dE204FB82643AE90793A13Fe6e418ce18d"
+    ],
+    "candidates": [
+      "0xE14702dE204FB82643AE90793A13Fe6e418ce18d"
+    ],
+    "votes": {
+      "0xE14702dE204FB82643AE90793A13Fe6e418ce18d": {
+        "0xE14702dE204FB82643AE90793A13Fe6e418ce18d": 0
+      }
+    },
+    "votesSignatures": {
+      "0xE14702dE204FB82643AE90793A13Fe6e418ce18d": "0x1dcc83e0bbc98995be91731bf588e9ad86468019c85e367d078b4219285224742859d415c19730bb4a7ca2a835b0fc6f8fb6e1e633b6387eefe735fb9574ab221c"
+    },
+    "signature": "0x00f27cceefce0025b994f6e8c6b0572d16c6250545dbb791d2fd382abc3c85ce00f70bf21f57db2d657926209cf4034a02c5227ab38ad167eff0defcc01f07741c",
+    "status": "finished"
+  },
+  "2": {
+    "owner": "0xE14702dE204FB82643AE90793A13Fe6e418ce18d",
+    "createdAt": 1639421237834,
+    "voteAllocation": "3",
+    "members": [
+      "0xE14702dE204FB82643AE90793A13Fe6e418ce18d"
+    ],
+    "candidates": [
+      "0xE14702dE204FB82643AE90793A13Fe6e418ce18d"
+    ],
+    "votes": {},
+    "votesSignatures": {},
+    "signature": "0x00f27cceefce0025b994f6e8c6b0572d16c6250545dbb791d2fd382abc3c85ce00f70bf21f57db2d657926209cf4034a02c5227ab38ad167eff0defcc01f07741c",
+    "status": "started"
+  }
+}

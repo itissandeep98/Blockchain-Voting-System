@@ -3,18 +3,18 @@
 const { ethers } = require("hardhat");
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
-  const TO_ADDRESS = "0x210A2F92A94F31d2c5a377018d9d24A1EB2EBCB9";
+	const TO_ADDRESS = "0xE14702dE204FB82643AE90793A13Fe6e418ce18d";
 
-  const { deploy } = deployments;
-  const { deployer } = await getNamedAccounts();
+	const { deploy } = deployments;
+	const { deployer } = await getNamedAccounts();
 
-  await deploy("QuadraticDiplomacyContract", {
-    from: deployer,
-    log: true,
-    args: [TO_ADDRESS],
-  });
+	await deploy("QuadraticDiplomacyContract", {
+		from: deployer,
+		log: true,
+		args: [TO_ADDRESS],
+	});
 
-  /*
+	/*
     // Test data
     const QuadraticDiplomacyContract = await ethers.getContract(
       "QuadraticDiplomacyContract",
@@ -38,7 +38,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     await QuadraticDiplomacyContract.voteMultiple(names, wallets, amounts);
   */
 
-  /*
+	/*
     // Getting a previously deployed contract
     const YourContract = await ethers.getContract("YourContract", deployer);
     await YourContract.setPurpose("Hello");
@@ -46,7 +46,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     //const yourContract = await ethers.getContractAt('YourContract', "0xaAC799eC2d00C013f1F11c37E654e59B0429DF6A") //<-- if you want to instantiate a version of a contract at a specific address!
   */
 
-  /*
+	/*
   //If you want to send value to an address from the deployer
   const deployerWallet = ethers.provider.getSigner()
   await deployerWallet.sendTransaction({
@@ -55,14 +55,14 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   })
   */
 
-  /*
+	/*
   //If you want to send some ETH to a contract on deploy (make your constructor payable!)
   const yourContract = await deploy("YourContract", [], {
   value: ethers.utils.parseEther("0.05")
   });
   */
 
-  /*
+	/*
   //If you want to link a library into your contract:
   // reference: https://github.com/austintgriffith/scaffold-eth/blob/using-libraries-example/packages/hardhat/scripts/deploy.js#L19
   const yourContract = await deploy("YourContract", [], {}, {
