@@ -28,13 +28,13 @@ const DisplayVariable = ({ contractFunction, functionInfo, refreshRequired, trig
             textAlign: "right",
             opacity: 0.333,
             paddingRight: 6,
-            fontSize: 24,
+            fontSize: 20,
           }}
         >
           {functionInfo.name}
         </Col>
-        <Col span={14}>
-          <h2>{tryToDisplay(variable)}</h2>
+        <Col span={14} className="text-break">
+          <p>{tryToDisplay(variable)}</p>
         </Col>
         <Col span={2}>
           <h2>
