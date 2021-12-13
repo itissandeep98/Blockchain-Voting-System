@@ -1,41 +1,68 @@
 {
-	"name": "drizzle-box",
-	"version": "1.0.0",
-	"description": "",
-	"main": "truffle-config.js",
-	"directories": {
-		"test": "test"
-	},
-	"scripts": {
-		"ganache": "ganache-cli --port 7545 --networkId $npm_package_config_ganache_networkId --allowUnlimitedContractSize --gasLimit $npm_package_config_ganache_gasLimit --gasPrice $npm_package_config_ganache_gasPrice --mnemonic \"$MNEMONIC\"",
-		"start": "concurrently \"npm run ganache\" \"npm run migrate\"",
-		"migrate": "rm -rf app/src/contracts && truffle migrate --reset --compile-all --network development",
-		"migrate:g": "rm -rf app/src/contracts && truffle migrate --reset --compile-all --network graphical"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/truffle-box/drizzle-box.git"
-	},
-	"config": {
-		"ganache": {
-			"networkId": 3431,
-			"gasPrice": 25000000000,
-			"gasLimit": 6500000
-		}
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/truffle-box/drizzle-box/issues"
-	},
-	"homepage": "https://github.com/truffle-box/drizzle-box#readme",
-	"dependencies": {
-		"@openzeppelin/contracts": "^2.4.0",
-		"@truffle/hdwallet-provider": "^1.5.1",
-		"babel-polyfill": "^6.26.0",
-		"babel-register": "^6.26.0",
-		"object-hash": "^2.2.0",
-		"react-split-flap-display": "^0.3.3"
-	}
+  "name": "@scaffold-eth/monorepo",
+  "version": "1.0.0",
+  "keywords": [
+    "ethereum",
+    "react",
+    "uniswap",
+    "workspaces",
+    "yarn"
+  ],
+  "private": true,
+  "scripts": {
+    "react-app:build": "yarn workspace @scaffold-eth/react-app build --max-old-space-size=12288",
+    "react-app:eject": "yarn workspace @scaffold-eth/react-app eject",
+    "react-app:start": "yarn workspace @scaffold-eth/react-app start",
+    "react-app:test": "yarn workspace @scaffold-eth/react-app test",
+    "build": "yarn workspace @scaffold-eth/react-app build --max-old-space-size=12288",
+    "chain": "yarn workspace @scaffold-eth/hardhat chain",
+    "fork": "yarn workspace @scaffold-eth/hardhat fork",
+    "node": "yarn workspace @scaffold-eth/hardhat chain",
+    "test": "yarn workspace @scaffold-eth/hardhat test",
+    "start": "yarn workspace @scaffold-eth/react-app start",
+    "compile": "yarn workspace @scaffold-eth/hardhat compile",
+    "deploy": "yarn workspace @scaffold-eth/hardhat deploy",
+    "verify": "yarn workspace @scaffold-eth/hardhat etherscan-verify", 
+    "watch": "yarn workspace @scaffold-eth/hardhat watch",
+    "accounts": "yarn workspace @scaffold-eth/hardhat accounts",
+    "balance": "yarn workspace @scaffold-eth/hardhat balance",
+    "send": "yarn workspace @scaffold-eth/hardhat send",
+    "ipfs": "yarn workspace @scaffold-eth/react-app ipfs",
+    "surge": "yarn workspace @scaffold-eth/react-app surge",
+    "s3": "yarn workspace @scaffold-eth/react-app s3",
+    "ship": "yarn workspace @scaffold-eth/react-app ship",
+    "generate": "yarn workspace @scaffold-eth/hardhat generate",
+    "account": "yarn workspace @scaffold-eth/hardhat account",
+    "mineContractAddress": "cd packages/hardhat && npx hardhat mineContractAddress",
+    "wallet": "cd packages/hardhat && npx hardhat wallet",
+    "fundedwallet": "cd packages/hardhat && npx hardhat fundedwallet",
+    "flatten": "cd packages/hardhat && npx hardhat flatten",
+    "clean": "cd packages/hardhat && npx hardhat clean",
+    "run-graph-node": "yarn workspace @scaffold-eth/services run-graph-node",
+    "remove-graph-node": "yarn workspace @scaffold-eth/services remove-graph-node",
+    "clean-graph-node": "yarn workspace @scaffold-eth/services clean-graph-node",
+    "graph-prepare": "mustache packages/subgraph/config/config.json packages/subgraph/src/subgraph.template.yaml > packages/subgraph/subgraph.yaml",
+    "graph-codegen": "yarn workspace @scaffold-eth/subgraph graph codegen",
+    "graph-build": "yarn workspace @scaffold-eth/subgraph graph build",
+    "graph-create-local": "yarn workspace @scaffold-eth/subgraph graph create --node http://localhost:8020/ scaffold-eth/your-contract",
+    "graph-remove-local": "yarn workspace @scaffold-eth/subgraph graph remove --node http://localhost:8020/ scaffold-eth/your-contract",
+    "graph-deploy-local": "yarn workspace @scaffold-eth/subgraph graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 scaffold-eth/your-contract",
+    "graph-ship-local": "yarn graph-prepare && yarn graph-codegen && yarn graph-deploy-local",
+    "deploy-and-graph": "yarn deploy && yarn graph-ship-local",
+    "theme": "yarn workspace @scaffold-eth/react-app theme",
+    "watch-theme": "yarn workspace @scaffold-eth/react-app watch",
+    "backend": "cd packages/backend && node index"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@graphprotocol/graph-ts",
+      "**/@graphprotocol/graph-ts/**",
+      "**/hardhat",
+      "**/hardhat/**"
+    ]
+  },
+  "dependencies": {}
 }
