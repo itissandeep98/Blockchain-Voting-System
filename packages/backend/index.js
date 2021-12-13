@@ -50,7 +50,7 @@ const isAdmin = async (address) => {
   const providerNetwork = await localProvider.getNetwork();
   const _chainId = providerNetwork.chainId;
 
-  contractList = require("../react-app/src/contracts/hardhat_contracts.json");
+  contractList = require("./hardhat_contracts.json");
 
   const contractData =
     contractList[_chainId][targetNetwork.name].contracts
