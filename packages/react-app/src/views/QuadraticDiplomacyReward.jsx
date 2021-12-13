@@ -78,7 +78,11 @@ export default function QuadraticDiplomacyReward({
     });
 
     return [votes, voteCount, sqrts, total];
-  }, [currentDistribution.id, currentDistribution.id && Object.keys(currentDistribution.votes).sort().join(), votingType]);
+  }, [
+    currentDistribution.id,
+    currentDistribution.id && Object.keys(currentDistribution.votes).sort().join(),
+    votingType,
+  ]);
 
   const votersInfo = useMemo(() => {
     const voters = [];
@@ -214,9 +218,7 @@ export default function QuadraticDiplomacyReward({
         vote: contributor?.vote,
         votesSqrt: contributor?.sqrtVote,
         votesShare:
-          votingType === "Quadratic"
-            ? contributor?.sqrtVote / totalSqrtVotes
-            : contributor?.sqrtVote / totalSquare,
+          votingType === "Quadratic" ? contributor?.sqrtVote / totalSqrtVotes : contributor?.sqrtVote / totalSquare,
         rewardAmount:
           votingType === "Quadratic"
             ? (contributor?.sqrtVote / totalSqrtVotes) * totalRewardAmount
@@ -405,7 +407,15 @@ export default function QuadraticDiplomacyReward({
                   Pay and Close 💸🔒
                 </Button>
                 <Button
-                  onClick={() => { if (confirm("Are you sure you want to close the distribution? You can't send payments after a distribution is closed.")) { handleFinishDistribution() }}}
+                  onClick={() => {
+                    if (
+                      confirm(
+                        "Are you sure you want to close the distribution? You can't send payments after a distribution is closed.",
+                      )
+                    ) {
+                      handleFinishDistribution();
+                    }
+                  }}
                   size="large"
                 >
                   Just Close 🔒

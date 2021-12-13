@@ -47,7 +47,7 @@ const { Title } = Typography;
 /// 📡 What chain are your contracts deployed to?
 const targetNetwork = NETWORKS.ropsten;
 
-const serverUrl = "https://ibc-voting.herokuapp.com:45622/";
+const serverUrl = "https://ibc-voting.herokuapp.com/";
 
 // 😬 Sorry for all the console logging
 const DEBUG = true;

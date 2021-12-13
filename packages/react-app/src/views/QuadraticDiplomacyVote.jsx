@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Button, Checkbox, Divider, Space, List, Steps, Typography, Badge, Spin, Row, Col } from "antd";
-import { SmileTwoTone, LikeTwoTone, CheckCircleTwoTone, MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import React, { useState, useMemo } from "react";
+import { Button, Divider, Space, List, Typography, Badge, Spin, Row } from "antd";
+import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { Address } from "../components";
 const { Title, Text } = Typography;
 const axios = require("axios");
@@ -45,8 +45,12 @@ export default function QuadraticDiplomacyVote({
 
   if (!isVoter) {
     return (
-      <div style={{ border: "1px solid", padding: "40px", width: 800, margin: "auto", marginTop: 64, textAlign: "left" }}>
-        <Title level={4} style={{ fontFamily: "Space Mono" }}>Access denied</Title>
+      <div
+        style={{ border: "1px solid", padding: "40px", width: 800, margin: "auto", marginTop: 64, textAlign: "left" }}
+      >
+        <Title level={4} style={{ fontFamily: "Space Mono" }}>
+          Access denied
+        </Title>
         <p>You are not part of the voters of this election.</p>
       </div>
     );
@@ -109,12 +113,7 @@ export default function QuadraticDiplomacyVote({
     );
   }
 
-  if (
-    currentDistribution.id &&
-    currentStep != 2 &&
-    currentDistribution.votes &&
-    currentDistribution.votes[address]
-  ) {
+  if (currentDistribution.id && currentStep != 2 && currentDistribution.votes && currentDistribution.votes[address]) {
     setSelectedContributors(currentDistribution.votes[address]);
     setCurrentStep(2);
   }
@@ -130,7 +129,9 @@ export default function QuadraticDiplomacyVote({
           style={{ width: "600px", margin: "0 auto" }}
           header={
             <Space direction="vertical">
-              <Title level={4} style={{ fontFamily: "Space Mono" }}>Allocate votes</Title>
+              <Title level={4} style={{ fontFamily: "Space Mono" }}>
+                Allocate votes
+              </Title>
               <Title level={5}>
                 Remaining vote tokens:&nbsp;&nbsp;
                 <Badge
@@ -204,9 +205,13 @@ export default function QuadraticDiplomacyVote({
       ) : (
         currentStep === 2 && (
           <>
-            <Title level={3} style={{ fontFamily: "Space Mono" }}>Thank you for voting.</Title>
+            <Title level={3} style={{ fontFamily: "Space Mono" }}>
+              Thank you for voting.
+            </Title>
             <p>The allocation to this workstream will be informed by your votes.</p>
-            <Title level={5} style={{ marginTop: "24px" }}>Your votes:</Title>
+            <Title level={5} style={{ marginTop: "24px" }}>
+              Your votes:
+            </Title>
             {Object.entries(selectedContributors).map(([contributorAddress, voteTokens]) => (
               <div key={contributorAddress}>
                 <Address address={contributorAddress} fontSize={16} size="short" ensProvider={mainnetProvider} /> (

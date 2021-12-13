@@ -110,11 +110,27 @@ export default function QuadraticDiplomacyCreate({
   }
 
   return (
-    <div style={{ border: "1px solid", padding: "40px", width: "800px", margin: "64px auto 0px auto", textAlign: "left" }}>
-      <Title level={3} style={{ fontFamily: "Space Mono" }}>Add members</Title>
+    <div
+      style={{ border: "1px solid", padding: "40px", width: "800px", margin: "64px auto 0px auto", textAlign: "left" }}
+    >
+      <Title level={3} style={{ fontFamily: "Space Mono" }}>
+        Add members
+      </Title>
       <Divider />
-      <Form form={form} name="basic" onFinish={handleSubmit} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} layout="horizontal">
-        <Form.Item label="Vote Allocation" name="voteCredit" style={{ textAlign: "left" }} tooltip="Number of votes each voter will have">
+      <Form
+        form={form}
+        name="basic"
+        onFinish={handleSubmit}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        layout="horizontal"
+      >
+        <Form.Item
+          label="Vote Allocation"
+          name="voteCredit"
+          style={{ textAlign: "left" }}
+          tooltip="Number of votes each voter will have"
+        >
           <Input
             type="number"
             placeholder="100"
