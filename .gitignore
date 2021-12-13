@@ -42,3 +42,4 @@ yarn-error.log*
 
 # VS Code settings
 .vscode
+packages/react-app/build/
