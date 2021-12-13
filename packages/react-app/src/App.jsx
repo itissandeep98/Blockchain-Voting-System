@@ -45,9 +45,9 @@ const { Title } = Typography;
 */
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork =  NETWORKS.ropsten;
+const targetNetwork = NETWORKS.ropsten;
 
-const serverUrl = "http://localhost:45622/";
+const serverUrl = "https://ibc-voting.herokuapp.com:45622/";
 
 // 😬 Sorry for all the console logging
 const DEBUG = true;
@@ -158,7 +158,8 @@ function App() {
   }, [userSigner]);
 
   const [currentDistribution, setCurrentDistribution] = useCurrentDistribution(serverUrl);
-  const isVoter = address && currentDistribution && currentDistribution.members && currentDistribution.members.includes(address);
+  const isVoter =
+    address && currentDistribution && currentDistribution.members && currentDistribution.members.includes(address);
 
   // You can warn the user if you would like them to be on a specific network
   const localChainId = localProvider && localProvider._network && localProvider._network.chainId;
