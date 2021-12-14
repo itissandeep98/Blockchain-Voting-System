@@ -4,7 +4,7 @@ A semi-decentralized & effective way of distributing rewards to workstream contr
 
 This build uses a Firebase data store for storing members and votes. The distribution creation and the votes are verified using signed messages. Then the distribution is done on-chain based on the information from the off-chain distribution.
 
-## Prerequisites
+## Prerequisites 
 
 - **Node** - v16.x.x
 - **npm** - v8.1.x (preferrably 7.6.0)
