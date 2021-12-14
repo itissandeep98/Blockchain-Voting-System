@@ -63,14 +63,14 @@ export default function Account({
         "Connecting..."
       )}
       <Balance address={address} provider={localProvider} price={price} />
-      <Wallet
+      {/* <Wallet
         address={address}
         provider={localProvider}
         signer={userSigner}
         ensProvider={mainnetProvider}
         price={price}
         color={currentTheme === "light" ? "#1890ff" : "#2caad9"}
-      />
+      /> */}
     </Space>
   );
 

@@ -496,7 +496,7 @@ function App() {
 
   return (
     <div className="App text-center">
-      <img src="/logo/logo.png" width={300} height={60} className="my-3 mx-3" />
+      <img src="/logo/logo.png" width={300} height={80} className="my-3 mx-3" />
 
       {networkDisplay}
       <div className="p-5">
