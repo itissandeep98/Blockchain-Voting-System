@@ -112,18 +112,15 @@ export default function Contract({
       <Card
         title={
           <div>
-            {name}
-            <div style={{ float: "right" }}>
-              <Account
-                address={address}
-                localProvider={provider}
-                injectedProvider={provider}
-                mainnetProvider={provider}
-                price={price}
-                blockExplorer={blockExplorer}
-              />
-              {account}
-            </div>
+            <Account
+              address={address}
+              localProvider={provider}
+              injectedProvider={provider}
+              mainnetProvider={provider}
+              price={price}
+              blockExplorer={blockExplorer}
+            />
+            {account}
           </div>
         }
         size="large"

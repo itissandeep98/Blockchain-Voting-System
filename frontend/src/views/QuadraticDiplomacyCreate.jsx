@@ -5,7 +5,6 @@ import { DeleteOutlined } from "@ant-design/icons";
 import { AddressInput } from "../components";
 const { Title } = Typography;
 const axios = require("axios");
-const { ethers } = require("ethers");
 
 export default function QuadraticDiplomacyCreate({
   mainnetProvider,
@@ -22,46 +21,7 @@ export default function QuadraticDiplomacyCreate({
   const [isSendingTx, setIsSendingTx] = useState(false);
   const [form] = Form.useForm();
 
-  const handleAddVoters = async () => {
-    const text = await navigator.clipboard.readText();
-    const addresses = text.split(",");
-    if (voters.length === 1 && voters[0] === "") {
-      setVoters([]);
-    }
-    addresses.forEach(voteAddress => {
-      try {
-        const voteAddressWithChecksum = ethers.utils.getAddress(voteAddress);
-        if (!voters.includes(voteAddressWithChecksum)) {
-          setVoters(prevVoters => [...prevVoters, voteAddressWithChecksum]);
-        }
-      } catch (error) {
-        console.log("Error parsing address ", voteAddress);
-        console.log(error);
-      }
-    });
-  };
-
-  const handleAddCandidates = async () => {
-    const text = await navigator.clipboard.readText();
-    const addresses = text.split(",");
-    if (voters.length === 1 && voters[0] === "") {
-      setVoters([]);
-    }
-    addresses.forEach(candidateAddress => {
-      try {
-        const candidateAddressWithChecksum = ethers.utils.getAddress(candidateAddress);
-        if (!candidates.includes(candidateAddressWithChecksum)) {
-          setCandidates(prevCandidates => [...prevCandidates, candidateAddressWithChecksum]);
-        }
-      } catch (error) {
-        console.log("Error parsing address ", candidateAddress);
-        console.log(error);
-      }
-    });
-  };
-
   const handleSubmit = async () => {
-    // ToDo. Check if addresses are valid.
     setIsSendingTx(true);
     const filteredVoters = voters.filter(voter => voter);
     const filteredCandidates = candidates.filter(voter => voter);
@@ -87,7 +47,7 @@ export default function QuadraticDiplomacyCreate({
         form.resetFields();
         setIsSendingTx(false);
       })
-      .catch(e => {
+      .catch(() => {
         console.log("Error on distributions post");
       });
   };
@@ -139,10 +99,7 @@ export default function QuadraticDiplomacyCreate({
           />
         </Form.Item>
         <Divider />
-        <Button className="btn-bvs" block onClick={() => handleAddVoters()}>
-          Add Voters from Clipboard
-        </Button>
-        <Divider />
+
         {voters.map((_, index) => (
           <VoterInput
             key={index}
@@ -163,10 +120,7 @@ export default function QuadraticDiplomacyCreate({
           </Button>
         </Form.Item>
         <Divider />
-        <Button className="btn-bvs" block onClick={() => handleAddCandidates()}>
-          Add Candidates from Clipboard
-        </Button>
-        <Divider />
+
         {candidates.map((_, index) => (
           <VoterInput
             key={index}
@@ -224,7 +178,7 @@ const VoterInput = ({ index, voters, setVoters, mainnetProvider }) => {
           <Col span={8}>
             <DeleteOutlined
               style={{ cursor: "pointer", color: "#ff6666" }}
-              onClick={event => {
+              onClick={() => {
                 setVoters(prevVoters => {
                   const nextVoters = [...prevVoters];
                   return nextVoters.filter((_, i) => i !== index);

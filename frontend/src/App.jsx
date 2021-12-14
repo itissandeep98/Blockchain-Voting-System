@@ -386,7 +386,7 @@ function App() {
               }}
               to="/quadratic-diplomacy-reward"
             >
-              Reward
+              Result
             </Link>
           </Menu.Item>
           <Menu.Item key="/contract">
@@ -396,7 +396,7 @@ function App() {
               }}
               to="/contract"
             >
-              Contract
+              Settings
             </Link>
           </Menu.Item>
         </Menu>

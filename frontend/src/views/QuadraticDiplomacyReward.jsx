@@ -135,34 +135,11 @@ export default function QuadraticDiplomacyReward({
         render: address => <Address address={address} fontSize={16} size="short" ensProvider={mainnetProvider} />,
       },
       {
-        title: "Nº of votes",
+        title: "No. of votes",
         dataIndex: "vote",
         defaultSortOrder: "descend",
         align: "center",
         sorter: (a, b) => a.vote - b.vote,
-      },
-      {
-        title: votingType + " votes",
-        dataIndex: "votesSqrt",
-        align: "center",
-        sorter: (a, b) => a.votesSqrt - b.votesSqrt,
-        render: (votesSqrt, record) => (
-          <p>
-            {votesSqrt.toFixed(2)} <Text type="secondary">({(record.votesShare * 100).toFixed(2)}%)</Text>
-          </p>
-        ),
-      },
-      {
-        title: "Reward Amount",
-        dataIndex: "rewardAmount",
-        defaultSortOrder: "descend",
-        align: "center",
-        sorter: (a, b) => a.rewardAmount - b.rewardAmount,
-        render: rewardAmount => (
-          <p>
-            {rewardAmount.toFixed(2)} {selectedToken.toUpperCase()}
-          </p>
-        ),
       },
     ],
     [mainnetProvider, selectedToken],
@@ -335,37 +312,12 @@ export default function QuadraticDiplomacyReward({
 
   return (
     <div style={{ border: "1px solid #cccccc", padding: 16, width: 1000, margin: "auto", marginTop: 64 }}>
-      <Title level={3}>Reward Contributors {currentDistribution.id}</Title>
+      <Title level={3}>Election Results of {currentDistribution.id}</Title>
       <Title level={5}>
         Total votes:&nbsp;&nbsp;
         <Tag color="#000000">{totalVotes}</Tag>
       </Title>
-      <Title level={5}>
-        Total {votingType} votes:&nbsp;&nbsp;
-        <Tag color="#52c41a">{totalSqrtVotes.toFixed(2)}</Tag>
-        <Select defaultValue={votingType} onChange={setVotingType}>
-          {VOTING_TYPES.map(vType => (
-            <Select.Option value={vType}>{vType}</Select.Option>
-          ))}
-        </Select>
-      </Title>
-      <Divider />
-      <Space split>
-        <Input
-          type="number"
-          disabled={!selectedToken} // disable if no token selected
-          value={totalRewardAmount}
-          addonBefore="Total Amount to Distribute"
-          addonAfter={
-            <Select defaultValue="Select token..." onChange={setSelectedToken}>
-              {TOKENS.map(tokenName => (
-                <Select.Option value={tokenName}>{tokenName}</Select.Option>
-              ))}
-            </Select>
-          }
-          onChange={e => setTotalRewardAmount(e.target.value.toLowerCase())}
-        />
-      </Space>
+
       <Divider />
       <Space direction="vertical" style={{ width: "100%" }}>
         <Title level={4}>Voters</Title>
@@ -393,20 +345,6 @@ export default function QuadraticDiplomacyReward({
             !isSendingTx ? (
               <Space>
                 <Button
-                  onClick={() => handlePayment(false)}
-                  disabled={rewardStatus === REWARD_STATUS.COMPLETED || !totalRewardAmount || !dataSource?.length}
-                  size="large"
-                >
-                  Pay 💸
-                </Button>
-                <Button
-                  onClick={() => handlePayment(true)}
-                  disabled={rewardStatus === REWARD_STATUS.COMPLETED || !totalRewardAmount || !dataSource?.length}
-                  size="large"
-                >
-                  Pay and Close 💸🔒
-                </Button>
-                <Button
                   onClick={() => {
                     if (
                       confirm(
@@ -418,7 +356,7 @@ export default function QuadraticDiplomacyReward({
                   }}
                   size="large"
                 >
-                  Just Close 🔒
+                  Close Election
                 </Button>
               </Space>
             ) : (

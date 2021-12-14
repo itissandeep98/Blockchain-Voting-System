@@ -99,7 +99,6 @@ export default function AddressInput(props) {
         placeholder={props.placeholder ? props.placeholder : "address"}
         prefix={<Blockie address={currentValue} size={8} scale={3} />}
         value={ens || currentValue}
-        addonAfter={scannerButton}
         onChange={e => {
           updateAddress(e.target.value);
         }}
