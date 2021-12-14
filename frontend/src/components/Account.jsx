@@ -57,12 +57,12 @@ export default function Account({
     <Space>
       {isAdmin && <Badge count={"admin"} />}
       {isVoter && <Badge count={"voter"} style={{ backgroundColor: "#52c41a" }} />}
-      {address ? (
+      {/* {address ? (
         <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />
       ) : (
         "Connecting..."
       )}
-      <Balance address={address} provider={localProvider} price={price} />
+      <Balance address={address} provider={localProvider} price={price} /> */}
       {/* <Wallet
         address={address}
         provider={localProvider}

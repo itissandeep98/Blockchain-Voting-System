@@ -139,7 +139,7 @@ export default function QuadraticDiplomacyCreate({
           />
         </Form.Item>
         <Divider />
-        <Button type="primary" block onClick={() => handleAddVoters()}>
+        <Button className="btn-bvs" block onClick={() => handleAddVoters()}>
           Add Voters from Clipboard
         </Button>
         <Divider />
@@ -153,7 +153,6 @@ export default function QuadraticDiplomacyCreate({
           />
         ))}
         <Form.Item style={{ justifyContent: "center", marginTop: 24 }}>
-          {/*ToDo. Restart ant form state (the browser is keeping filled-removed elements)*/}
           <Button
             type="dashed"
             block
@@ -164,7 +163,7 @@ export default function QuadraticDiplomacyCreate({
           </Button>
         </Form.Item>
         <Divider />
-        <Button type="primary" block onClick={() => handleAddCandidates()}>
+        <Button className="btn-bvs" block onClick={() => handleAddCandidates()}>
           Add Candidates from Clipboard
         </Button>
         <Divider />
@@ -178,7 +177,6 @@ export default function QuadraticDiplomacyCreate({
           />
         ))}
         <Form.Item style={{ justifyContent: "center", marginTop: 24 }}>
-          {/*ToDo. Restart ant form state (the browser is keeping filled-removed elements)*/}
           <Button
             type="dashed"
             block
@@ -191,7 +189,7 @@ export default function QuadraticDiplomacyCreate({
         <Divider />
         <Form.Item wrapperCol={{ offset: 16, span: 8 }}>
           {!isSendingTx ? (
-            <Button type="primary" htmlType="submit" block disabled={!voteAllocation}>
+            <Button className="btn-bvs" htmlType="submit" block disabled={!voteAllocation}>
               Submit
             </Button>
           ) : (

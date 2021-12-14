@@ -147,7 +147,7 @@ export default function QuadraticDiplomacyVote({
             <Row justify="end">
               {!isSendingTx ? (
                 <>
-                  <Button type="primary" onClick={handleSubmitVotes}>
+                  <Button className="btn-bvs" onClick={handleSubmitVotes}>
                     Commit votes
                   </Button>
                 </>

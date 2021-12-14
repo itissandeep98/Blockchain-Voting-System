@@ -5,3 +5,7 @@
 body {
   font-family: "Poppins", Times, serif;
 }
+.btn-bvs {
+  background-color: #fd9710 !important;
+  color: black !important;
+}
