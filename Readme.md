@@ -1,35 +1,26 @@
-# Quadratic diplomacy (distribution creation and votes off-chain, voters and candidates split list)
+# Ballot Box
 
 A semi-decentralized & effective way of distributing rewards to workstream contributors.
 
 With one list for the voters and another list for the candidates.
 
-![qdip-create](https://user-images.githubusercontent.com/466652/139717035-12cfc65a-7234-40f7-a8c9-5722337201c0.png)
-
-![Preview](preview.png)
-
-![qdip-rewards](https://user-images.githubusercontent.com/466652/139717062-bf07094a-844b-40d4-a2bd-b21cbb48c6a5.png)
-
 This build uses a Firebase data store for storing members and votes. The distribution creation and the votes are verified using signed messages. Then the distribution is done on-chain based on the information from the off-chain distribution.
 
-Built with [🏗 Scaffold-ETH](https://github.com/austintgriffith/scaffold-eth) as a [Moonshot collective](https://moonshotcollective.space/) project.
 
-## 🏄‍♂️ Quick start
+## Local Development setup
 
 Prerequisites: [Node](https://nodejs.org/en/download/) plus [Yarn](https://classic.yarnpkg.com/en/docs/install/) and [Git](https://git-scm.com/downloads)
 
 #### 1. Clone repository
 
-```bash
-git clone -b qd-off-chain-voters-and-candidates https://github.com/scaffold-eth/scaffold-eth.git qd-off-chain-voters-and-candidates
+```
+git clone https://github.com/itissandeep98/Blockchain-Voting-System.git
+cd Blockchain-Voting-System
 ```
 
-#### 2. Install and start your 👷‍ Hardhat chain:
+#### 2. Deploy contract on Hardhat:
 
-```bash
-cd qd-off-chain-voters-and-candidates
-yarn install
-yarn chain
+```
 ```
 
 #### 3. In a second terminal window, start your 📱 frontend:
